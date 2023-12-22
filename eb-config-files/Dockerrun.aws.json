@@ -1,26 +1,13 @@
 {
-    "AWSEBDockerrunVersion": 2,
-    "containerDefinitions": [
-      {
-        "name": "web",
-        "image": "heyysultan/django-app",
-        "essential": true,
-        "memory": 256,
-        "cpu": 256,
-        "command": ["python", "manage.py", "runserver", "0.0.0.0:8000"],
-        "portMappings": [
-          {
-            "hostPort": 80,
-            "containerPort": 8000
-          }
-        ],
-        "environment": [
-          {
-            "name": "DEBUG",
-            "value": "True"
-          }
-        ]
-      }
-    ]
-  }
-  
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "heyysultan/django-app",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "8000"
+    }
+  ],
+  "Logging": "/var/log/nginx"
+}
