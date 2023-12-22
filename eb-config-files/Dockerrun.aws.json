@@ -1,0 +1,51 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+      {
+        "name": "web",
+        "image": "heyysultan/django-app",
+        "essential": true,
+        "memory": 256,
+        "cpu": 256,
+        "command": ["python", "manage.py", "runserver", "0.0.0.0:8000"],
+        "portMappings": [
+          {
+            "hostPort": 80,
+            "containerPort": 8000
+          }
+        ],
+        "environment": [
+          {
+            "name": "DEBUG",
+            "value": "True"
+          },
+          {
+            "name": "DATABASE_URL",
+            "value": "postgres://user:password@db:5432/dbname"
+          }
+        ]
+      },
+      {
+        "name": "db",
+        "image": "postgres:latest",
+        "essential": true,
+        "memory": 256,
+        "cpu": 256,
+        "environment": [
+          {
+            "name": "POSTGRES_USER",
+            "value": "user"
+          },
+          {
+            "name": "POSTGRES_PASSWORD",
+            "value": "password"
+          },
+          {
+            "name": "POSTGRES_DB",
+            "value": "dbname"
+          }
+        ]
+      }
+    ]
+  }
+  
