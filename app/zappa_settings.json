@@ -1,0 +1,10 @@
+{
+    "staging": {
+        "aws_region": "us-west-1",
+        "django_settings": "demo.settings",
+        "profile_name": "default",
+        "project_name": "app",
+        "runtime": "python3.11",
+        "s3_bucket": "zappa-3d6ltvjvv"
+    }
+}
